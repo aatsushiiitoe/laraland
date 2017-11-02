@@ -8,7 +8,7 @@
  */
 
 define('LARAVEL_START', microtime(true));
-
+echo "hoge";
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
