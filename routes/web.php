@@ -26,3 +26,6 @@ Route::resource('admin/users', 'Admin\UsersController');
 Route::get('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@getGenerator']);
 Route::post('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@postGenerator']);
 Route::resource('admin/posts', 'Admin\\PostsController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

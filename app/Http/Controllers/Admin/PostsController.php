@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePost;
 
 class PostsController extends Controller
 {
@@ -45,15 +46,15 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \App\Http\Requests\StorePost $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
-        
+
         $requestData = $request->all();
-        
+
         Post::create($requestData);
 
         return redirect('admin/posts')->with('flash_message', 'Post added!');
@@ -91,15 +92,15 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  int  $id
-     * @param \Illuminate\Http\Request $request
+     * @param  \App\Http\Requests\StorePost $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(StorePost $request, Post $post)
     {
-        
+
         $requestData = $request->all();
-        
+
         $post = Post::findOrFail($id);
         $post->update($requestData);
 
